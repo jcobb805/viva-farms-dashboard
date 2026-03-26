@@ -451,7 +451,7 @@ function initMap() {
 
   let currentCountyFips = null;
 
-  function showDetail(fips) {
+  window.showDetail = function(fips) {
     currentCountyFips = fips;
     const panel = document.getElementById('detail-panel');
     const data = byCounty[fips];
