@@ -156,6 +156,16 @@
   .sib-meta { font-size: 11px; color: #6b7588; }
   .detail-panel { max-height: calc(100vh - 200px); overflow-y: auto; }
 
+
+  .county-back-btn {
+    display: inline-flex; align-items: center; gap: 6px;
+    background: #2c5ea8; color: #fff; border: none; border-radius: 6px;
+    padding: 7px 14px; font-size: 12px; font-weight: 600; cursor: pointer;
+    transition: all 0.15s; margin-bottom: 10px;
+  }
+  .county-back-btn:hover { background: #1e4a8a; }
+  .county-back-btn svg { width: 14px; height: 14px; }
+
 </style>
 </head>
 <body>
@@ -368,7 +378,7 @@ const INVENTORY = [
   { name: 'Tiger Farms II', county: 'Hockley', state: 'TX', fips: '48219', acres: 666.04, basis: 3113081.98, notes: '516 lots remaining' },
   { name: 'Terry Farms', county: 'Lamb', state: 'TX', fips: '48279', acres: 63.7, basis: 127599.06, notes: '5 lots remaining' },
   { name: 'Pollack Farms', county: 'Lamb', state: 'TX', fips: '48279', acres: 10.01, basis: 6693.47, notes: '' },
-  { name: 'McLerran Farms', county: 'Leon', state: 'TX', fips: '48289', acres: 11.64, basis: 10000.00, notes: '1/3 interest in 34.93 ac' },
+  { name: 'McLerran Farms', county: 'Terry', state: 'TX', fips: '48445', acres: 11.64, basis: 10000.00, notes: '1/3 interest in 34.93 ac' },
   { name: 'Mustang Farms', county: 'Lubbock', state: 'TX', fips: '48303', acres: 247.77, basis: 871585.57, notes: '16 lots remaining' },
   { name: 'Martin Farms', county: 'Lubbock', state: 'TX', fips: '48303', acres: 586.97, basis: 1410408.22, notes: '' },
   { name: 'Malcolm Farms', county: 'Lynn', state: 'TX', fips: '48305', acres: 74.9, basis: 332387.34, notes: '68 lots remaining' },
@@ -478,7 +488,7 @@ function initMap() {
     const hasNext = idx < data.properties.length - 1;
 
     let html = '<div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:8px;">';
-    html += '<button class="back-btn" onclick="showDetail(' + Q + fips + Q + ')">&larr; ' + data.county + ' County</button>';
+    html += '<button class="county-back-btn" onclick="showDetail(' + Q + fips + Q + ')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>' + data.county + ' County Overview</button>';
     if (data.properties.length > 1) {
       html += '<div style="display:flex;gap:4px;">';
       if (hasPrev) html += '<button class="nav-btn" onclick="showPropertyDetail(' + Q + fips + Q + ',' + (idx-1) + ')" title="' + data.properties[idx-1].name + '">&lsaquo; Prev</button>';
