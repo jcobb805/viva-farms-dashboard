@@ -488,7 +488,7 @@ function initMap() {
     const hasNext = idx < data.properties.length - 1;
 
     let html = '<div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:8px;">';
-    html += '<button class="county-back-btn" onclick="showDetail(' + Q + fips + Q + ')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>' + data.county + ' County Overview</button>';
+    html += '<button class="county-back-btn" onclick="window.showDetail(' + Q + fips + Q + ')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>' + data.county + ' County Overview</button>';
     if (data.properties.length > 1) {
       html += '<div style="display:flex;gap:4px;">';
       if (hasPrev) html += '<button class="nav-btn" onclick="showPropertyDetail(' + Q + fips + Q + ',' + (idx-1) + ')" title="' + data.properties[idx-1].name + '">&lsaquo; Prev</button>';
